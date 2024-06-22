@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "fastapi - books"
+version = "0.1.0"
+description = "API build with FastAPI"
+authors = ["Denilson Silva <162153089+AroMight@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.0"
+pydantic = "^2.7.4"
+uvicorn = "^0.30.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
