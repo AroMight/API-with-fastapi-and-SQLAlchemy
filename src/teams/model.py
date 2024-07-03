@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import Integer, String
-from models.base import BaseModel
+from sqlalchemy import Integer, String, DateTime
+from configs.models.base import BaseModel
+from datetime import datetime
 
 
 class TeamModel(BaseModel):
@@ -9,8 +10,10 @@ class TeamModel(BaseModel):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(50))
     game: Mapped[str] = mapped_column(String(50))
+    created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
     # relationship with players
-    players = relationship('Player', back_populates='team')
+    # players = relationship('Player', back_populates='team')
 
-    def __repr__(self):
-        return f'<Team {self.name}>'
+    # def __repr__(self):
+    #     return f'<Team {self.name}>'
+

@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from players.controller import router as users_router
+from teams.controller import router as teams_router
 
 app = FastAPI()
 
-app.include_router(users_router)
+app.include_router(teams_router)
 
 if __name__ == "__main__":
     import uvicorn

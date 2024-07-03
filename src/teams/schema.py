@@ -1,6 +1,7 @@
 from datetime import datetime
-from pydantic import Annotated, Field, UUID4
-from schemas.base import BaseSchema
+from pydantic import Field, UUID4
+from configs.schemas.base import BaseSchema
+from typing import Annotated
 
 
 class Team(BaseSchema):
@@ -18,5 +19,5 @@ class TeamIn(Team):
 
 class TeamOut(Team):
     """TeamOut schema"""
-    id: Annotated[UUID4, Field(description='Team ID')]
+    uuid: Annotated[UUID4, Field(description='Team ID')]
     created_at: Annotated[datetime, Field(description='Team creation date')]
