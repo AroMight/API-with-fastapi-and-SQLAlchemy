@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Integer, String, ForeignKey
-from src.database.base_model import BaseModel
+from database.base_model import BaseModel
 
 
 class PlayerModel(BaseModel):
@@ -16,7 +16,7 @@ class PlayerModel(BaseModel):
     id_team: Mapped[int] = mapped_column(
         Integer, ForeignKey('teams.id'), nullable=True)
     # relationship with team
-    team = relationship('Team', back_populates='players')
+    team = relationship('TeamModel', back_populates='players')
 
     def __repr__(self):
         return f'<Player {self.username}>'

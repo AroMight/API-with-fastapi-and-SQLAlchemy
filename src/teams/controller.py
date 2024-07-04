@@ -3,9 +3,9 @@ from datetime import datetime, timezone
 from typing import Annotated
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import APIRouter, status, Depends, Body
-from src.database.session import get_session
-from src.teams.schema import TeamIn, TeamOut
-from src.teams.model import TeamModel
+from database.session import get_session
+from teams.schema import TeamIn, TeamOut
+from teams.model import TeamModel
 
 
 router = APIRouter()
@@ -22,7 +22,7 @@ async def create_user(
         session: Annotated[AsyncSession, Depends(get_session)]
 ):
     new_team = TeamModel(
-        created_at=datetime.now(timezone.utc),
+        created_at=datetime.now(),
         uuid=uuid4(),
         **team.model_dump()
     )
