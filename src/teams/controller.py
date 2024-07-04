@@ -1,11 +1,11 @@
 from uuid import uuid4
 from datetime import datetime, timezone
+from typing import Annotated
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import APIRouter, status, Depends, Body
-from configs.session import get_session
-from teams.schema import TeamIn, TeamOut
-from typing import Annotated
-from teams.model import TeamModel
+from src.database.session import get_session
+from src.teams.schema import TeamIn, TeamOut
+from src.teams.model import TeamModel
 
 
 router = APIRouter()

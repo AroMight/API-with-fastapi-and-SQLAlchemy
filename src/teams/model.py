@@ -1,7 +1,7 @@
+from datetime import datetime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Integer, String, DateTime
-from configs.models.base import BaseModel
-from datetime import datetime
+from src.database.base_model import BaseModel
 
 
 class TeamModel(BaseModel):
@@ -12,8 +12,7 @@ class TeamModel(BaseModel):
     game: Mapped[str] = mapped_column(String(50))
     created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
     # relationship with players
-    # players = relationship('Player', back_populates='team')
+    players = relationship('Player', back_populates='team')
 
-    # def __repr__(self):
-    #     return f'<Team {self.name}>'
-
+    def __repr__(self):
+        return f'<Team {self.name}>'

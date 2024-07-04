@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from teams.controller import router as teams_router
+from src.teams.controller import router as teams_router
 
 app = FastAPI()
 
