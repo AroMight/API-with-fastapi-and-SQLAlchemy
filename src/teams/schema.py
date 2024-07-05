@@ -21,3 +21,11 @@ class TeamOut(Team):
     """TeamOut schema"""
     uuid: Annotated[UUID4, Field(description='Team ID')]
     created_at: Annotated[datetime, Field(description='Team creation date')]
+
+
+class TeamUpdate(BaseSchema):
+    """TeamUpdate schema"""
+    name: Annotated[str | None, Field(
+        max_length=50, description="Team's name", example='Team A')] = None
+    game: Annotated[str | None, Field(
+        max_length=50, description="The game which the team plays", example='God of War')] = None
