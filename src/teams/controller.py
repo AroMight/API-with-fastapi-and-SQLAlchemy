@@ -103,6 +103,13 @@ async def update_team(
     updated_data: TeamUpdate,
 ):
     team = (await session.execute(select(TeamModel).filter_by(uuid=team_id))).scalars().first()
+
+    if not team:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No team with id '{team_id}' found."
+        )
+
     team_update = updated_data.model_dump(exclude_unset=True)
 
     for key, value in team_update.items():
@@ -112,3 +119,25 @@ async def update_team(
     await session.refresh(team)
 
     return team
+
+@router.delete(
+    "/teams/id/{team_id}/",
+    status_code=status.HTTP_204_NO_CONTENT,
+    response_description="Team deleted successfully",
+)
+async def delete_team(
+    session: Annotated[AsyncSession, Depends(get_session)],
+    team_id: UUID4,
+):
+    team = (await session.execute(select(TeamModel).filter_by(uuid=team_id))).scalars().first()
+
+    if not team:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No team with id '{team_id}' found."
+        )
+
+    session.delete(team)
+    await session.commit()
+
+    return None
