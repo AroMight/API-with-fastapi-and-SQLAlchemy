@@ -102,6 +102,7 @@ async def update_team(
     team_id: UUID4,
     updated_data: TeamUpdate,
 ):
+    """Update team by id"""
     team = (await session.execute(select(TeamModel).filter_by(uuid=team_id))).scalars().first()
 
     if not team:
@@ -120,6 +121,7 @@ async def update_team(
 
     return team
 
+
 @router.delete(
     "/teams/id/{team_id}/",
     status_code=status.HTTP_204_NO_CONTENT,
@@ -129,6 +131,7 @@ async def delete_team(
     session: Annotated[AsyncSession, Depends(get_session)],
     team_id: UUID4,
 ):
+    """Delete team by id"""
     team = (await session.execute(select(TeamModel).filter_by(uuid=team_id))).scalars().first()
 
     if not team:
@@ -137,7 +140,5 @@ async def delete_team(
             detail=f"No team with id '{team_id}' found."
         )
 
-    session.delete(team)
+    await session.delete(team)
     await session.commit()
-
-    return None
