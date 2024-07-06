@@ -142,3 +142,6 @@ async def delete_team(
 
     await session.delete(team)
     await session.commit()
+
+
+# Add endpoint to get all players in a team later
