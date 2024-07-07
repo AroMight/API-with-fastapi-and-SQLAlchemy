@@ -1,18 +1,26 @@
 from database.base_schema import BaseSchema
 from typing import Annotated
-from pydantic import Field
+from pydantic import UUID4, Field
 from teams.schema import TeamIn
 
 
 class PlayerOut(BaseSchema):
     first_name: Annotated[str | None, Field(
-        max_length=50, example="John")] = None
+        max_length=50, example="John", description="Player's first name. Can be null.")] = None
     last_name: Annotated[str | None, Field(
-        max_length=50, example="Doe")] = None
-    username: Annotated[str, Field(max_length=10, example="johndoe")]
-    email: Annotated[str, Field(max_length=50, example="jhon@doe.com.br")]
+        max_length=50, example="Doe", description="Player's last name. Can be null.")] = None
+    username: Annotated[str, Field(
+        max_length=10, example="johndoe", description="Player's username")]
+    email: Annotated[str, Field(
+        max_length=50, example="jhon@doe.com.br", description="Player's email")]
+    uuid: Annotated[UUID4, Field(description="Player's ID")]
 
 
 class PlayerIn(PlayerOut):
-    password: Annotated[str, Field(min_length=8, max_length=16)]    
+    password: Annotated[str, Field(
+        min_length=8, max_length=16, description="Player's password")]
     team: Annotated[TeamIn | None, Field(description="Player's team")] = None
+
+
+class PlayerUpdate(BaseSchema):
+    pass
