@@ -1,0 +1,7 @@
+#Postgresql credentials
+POSTGRES_DB=CHANGE-ME
+POSTGRES_USER=CHANGE-ME
+POSTGRES_PASSWORD=CHANGE-ME
+
+#Pydantic-settings
+DB_URL=postgresql+asyncpg://CHANGE-ME:CHANGE-ME@localhost:5432/CHANGE-ME
