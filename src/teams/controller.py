@@ -5,9 +5,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from fastapi import APIRouter, HTTPException, status, Depends, Body
 from pydantic import UUID4
-from database.session import get_session
-from teams.schema import TeamIn, TeamOut, TeamUpdate
-from teams.model import TeamModel
+from src.database.session import get_session
+from src.teams.schema import TeamIn, TeamOut, TeamUpdate
+from src.teams.model import TeamModel
 
 router = APIRouter()
 

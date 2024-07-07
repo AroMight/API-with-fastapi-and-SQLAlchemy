@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Integer, String
-from database.base_model import BaseModel
+from src.database.base_model import BaseModel
 
 
 class TeamModel(BaseModel):

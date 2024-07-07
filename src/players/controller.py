@@ -6,10 +6,10 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy import select
 from fastapi import APIRouter, Depends, HTTPException, Path
 from fastapi import status
-from teams.model import TeamModel
-from players.schema import PlayerIn, PlayerOut
-from players.model import PlayerModel
-from database.session import AsyncSession, get_session
+from src.teams.model import TeamModel
+from src.players.schema import PlayerIn, PlayerOut
+from src.players.model import PlayerModel
+from src.database.session import AsyncSession, get_session
 
 
 router = APIRouter()

@@ -1,2 +1,2 @@
-from teams.model import TeamModel
-from players.model import PlayerModel
+from src.teams.model import TeamModel
+from src.players.model import PlayerModel

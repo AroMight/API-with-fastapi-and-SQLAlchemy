@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Annotated
 from pydantic import Field, UUID4
-from database.base_schema import BaseSchema
+from src.database.base_schema import BaseSchema
 
 
 class Team(BaseSchema):
