@@ -1,6 +1,5 @@
 .env
 **/__pycache__/*
 .vscode/
-*.yaml
-Dockerfile
+*production.yaml
 .venv
