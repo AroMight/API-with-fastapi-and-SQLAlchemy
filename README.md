@@ -14,8 +14,8 @@ Certifique-se de ter instalado:
 1. **Clonar o repositório:**
 
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
-   cd nome-do-repositorio
+   git clone https://github.com/aROmIGHT/API-with-fastapi-and-SQLAlchemy.git
+   cd API-with-fastapi-and-SQLAlchemy
 2. **Configurar o ambiente:**
 
   Crie um arquivo `.env` na raiz do projeto com base no `.env.example`. Preencha as variáveis de ambiente necessárias, como as credenciais do banco de dados.
